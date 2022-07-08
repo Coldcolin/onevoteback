@@ -12,6 +12,10 @@ app.use(express.json())
 app.use(cors({origin: "*"}))
 app.use("/Uploads", express.static(path.join(__dirname, "uploads")))
 
+app.get("/", (req, res)=>{
+    res.send("Welcome to onevote")
+})
+
 app.use("/", require("./Router/Categories"))
 app.use("/api", require("./Router/users"))
 app.use("/api", require("./Router/Election"))
